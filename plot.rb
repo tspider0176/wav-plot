@@ -12,7 +12,7 @@ def get_wav_array(data_chunk, format)
   data_chunk.data.unpack(bit_per_sample(format))
 end
 
-f = open('test.wav')
+f = open('./sample/test.wav')
 format = WavFile.readFormat(f)
 data_chunk = WavFile.readDataChunk(f)
 wavs = get_wav_array(data_chunk, format)
@@ -29,7 +29,7 @@ Gnuplot.open do |gp|
     plot.set "output 'output.png'"
     plot.set "linestyle 1 linecolor rgbcolor 'black' linetype 1"
 
-    plot.data << Gnuplot::DataSet.new(wavs) do |ds|
+    plot.data << Gnuplot::DataSet.new(wavs.map { |v| v / 32_767.0 }) do |ds|
       ds.with      = 'lines'
       ds.linewidth = 1
     end
