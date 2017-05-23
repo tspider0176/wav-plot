@@ -27,7 +27,7 @@ Gnuplot.open do |gp|
     plot.set 'size ratio 0.25'
     plot.set 'terminal png size 1280,480'
     plot.set "output 'output.png'"
-    plot.set "linestyle 1 linecolor rgbcolor 'orange' linetype 1"
+    plot.set "linestyle 1 linecolor rgbcolor 'black' linetype 1"
 
     plot.data << Gnuplot::DataSet.new(wavs) do |ds|
       ds.with      = 'lines'
