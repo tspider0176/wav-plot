@@ -12,7 +12,7 @@ def get_wav_array(data_chunk, format)
   data_chunk.data.unpack(bit_per_sample(format))
 end
 
-f = open('./sample/test.wav')
+f = open(ARGV[0])
 format = WavFile.readFormat(f)
 data_chunk = WavFile.readDataChunk(f)
 wavs = get_wav_array(data_chunk, format)
